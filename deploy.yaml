@@ -13,23 +13,34 @@ spec:
       labels:
         app: github-runner
     spec:
-      serviceAccountName: github-runner
       containers:
       - name: runner
         image: myoung34/github-runner:latest
         env:
         - name: RUNNER_SCOPE
-          value: "org" # Required: Register as an organization runner
+          value: "org"
         - name: ORG_NAME
-          value: "kxn-organization" # Required: Replace with your GitHub organization name
+          value: "kxn-organization"
         - name: ACCESS_TOKEN
-          value: "" # Required: Replace with a valid GitHub PAT with necessary scopes
+          value: "" # Replace with your GitHub Personal Access Token
         - name: LABELS
-          value: "self-hosted" # Required: At least one label is mandatory
+          value: "self-hosted,docker"
+        - name: DOCKER_HOST
+          value: "unix:///var/run/docker.sock"
         resources:
           requests:
-            memory: "512Mi"
-            cpu: "500m"
-          limits:
             memory: "1Gi"
             cpu: "1"
+          limits:
+            memory: "2Gi"
+            cpu: "2"
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
