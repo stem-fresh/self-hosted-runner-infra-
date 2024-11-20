@@ -23,7 +23,7 @@ spec:
         - name: ORG_NAME
           value: "kxn-organization" # Required: Replace with your GitHub organization name
         - name: ACCESS_TOKEN
-          value: "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" # Required: Replace with a valid GitHub PAT with necessary scopes
+          value: "" # Required: Replace with a valid GitHub PAT with necessary scopes
         - name: LABELS
           value: "self-hosted" # Required: At least one label is mandatory
         resources:
