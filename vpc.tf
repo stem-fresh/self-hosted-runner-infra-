@@ -80,22 +80,3 @@ resource "google_compute_firewall" "allow_ssh" {
   source_ranges = [var.ssh_source_ranges]
 }
 
-resource "google_compute_instance" "vm_instance" {
-  name         = var.instance_name
-  machine_type = var.machine_type
-  zone         = var.zone
-
-  boot_disk {
-    initialize_params {
-      image = var.boot_disk_image
-      size  = var.instance_disk_size
-    }
-  }
-
-  network_interface {
-    network    = google_compute_network.vpc_network.name
-    subnetwork = google_compute_subnetwork.public_subnet.name
-
-    access_config {}
-  }
-}
