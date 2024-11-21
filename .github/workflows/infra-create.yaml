@@ -16,5 +16,6 @@ jobs:
 
     - name: Run shell script
       run: |
+        ls -ltr
         chmod +x ./trigger.sh
         ./trigger.sh 
