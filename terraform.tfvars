@@ -27,8 +27,8 @@ machine_type               = "e2-medium"                   # Machine type for co
 boot_disk_image            = "debian-cloud/debian-11"        # Boot disk image used for compute instances (Debian OS)
 instance_name              = "self-runner-instance"           # Name of the compute instance
 zone                       = "us-central1-f"            # Zone for the compute instance
-min_node_count             =  2
-max_node_count             =  5         
+min_node_count             =  1
+max_node_count             =  1         
 instance_disk_size         = 30                              # Disk size for the compute instance (in GB)
 
 # NAT Gateway Configuration
