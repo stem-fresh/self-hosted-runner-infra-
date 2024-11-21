@@ -30,6 +30,7 @@ resource "google_container_node_pool" "primary_nodes" {
 
   node_config {
     machine_type = var.node_pool_machine_type
+    disk_type    = "pd-ssd"
     disk_size_gb = var.node_disk_size
 
     oauth_scopes = var.oauth_scope_url
