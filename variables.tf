@@ -18,10 +18,6 @@ variable "pod_ip_range" {}
   
 variable "service_ip_range" {}
   
-variable "machine_type" {}
-  
-variable "boot_disk_image" {}
-  
 variable "node_pool_machine_type" {}
   
 variable "node_disk_size" {}
@@ -75,12 +71,6 @@ variable "tcp_port_range" {}
 variable "udp_port_range" {}
 
 variable "tcp_ssh_port" {}
-
-variable "instance_name" {}
-
-variable "zone" {}
-
-variable "instance_disk_size" {}
 
 variable "min_node_count" {}
 
