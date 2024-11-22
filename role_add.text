@@ -20,3 +20,38 @@ for ROLE in "${ROLES[@]}"; do
 done
 
 echo "All roles have been assigned successfully!"
+
+
+
+# ---------------------------------
+
+gcloud config set project your-project-id
+
+
+gcloud projects add-iam-policy-binding your-project-id \
+    --member="user:user@example.com" \
+    --role="roles/compute.admin"
+
+
+gcloud projects add-iam-policy-binding your-project-id \
+    --member="user:user@example.com" \
+    --role="roles/container.admin"
+
+gcloud projects add-iam-policy-binding your-project-id \
+    --member="user:user@example.com" \
+    --role="roles/container.clusterAdmin"
+
+gcloud projects add-iam-policy-binding your-project-id \
+    --member="user:user@example.com" \
+    --role="roles/iam.serviceAccountUser"
+
+gcloud projects add-iam-policy-binding your-project-id \
+    --member="user:user@example.com" \
+    --role="roles/storage.admin"
+
+
+gcloud projects get-iam-policy your-project-id \
+    --flatten="bindings[].members" \
+    --filter="bindings.members:user:user@example.com" \
+    --format="table(bindings.role)"
+
