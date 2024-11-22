@@ -1,0 +1,22 @@
+# Variables
+PROJECT_ID="your-project-id"   # Replace with your GCP Project ID
+USER_EMAIL="user@example.com"  # Replace with the user or service account email
+
+# Roles to add
+ROLES=(
+    "roles/compute.admin"
+    "roles/container.admin"
+    "roles/container.clusterAdmin"
+    "roles/iam.serviceAccountUser"
+    "roles/storage.admin"
+)
+
+# Loop through each role and add it
+for ROLE in "${ROLES[@]}"; do
+    echo "Assigning $ROLE to $USER_EMAIL..."
+    gcloud projects add-iam-policy-binding "$PROJECT_ID" \
+        --member="user:$USER_EMAIL" \
+        --role="$ROLE"
+done
+
+echo "All roles have been assigned successfully!"
