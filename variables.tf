@@ -38,11 +38,11 @@ variable "nat_source_ip_ranges" {}
   
 variable "allow_internal_firewall_name" {}
   
-variable "allow_ssh_firewall_name" {}
+#variable "allow_ssh_firewall_name" {}
   
 variable "internal_source_ranges" {}
   
-variable "ssh_source_ranges" {}
+#variable "ssh_source_ranges" {}
 
 variable "gke_location" {}
 
@@ -70,7 +70,7 @@ variable "tcp_port_range" {}
 
 variable "udp_port_range" {}
 
-variable "tcp_ssh_port" {}
+#variable "tcp_ssh_port" {}
 
 variable "min_node_count" {}
 
