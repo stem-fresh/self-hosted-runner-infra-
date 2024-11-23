@@ -68,15 +68,4 @@ resource "google_compute_firewall" "allow_internal" {
   source_ranges = var.internal_source_ranges
 }
 
-resource "google_compute_firewall" "allow_ssh" {
-  name    = var.allow_ssh_firewall_name
-  network = google_compute_network.vpc_network.name
-
-  allow {
-    protocol = var.tcp
-    ports    = var.tcp_ssh_port
-  }
-
-  source_ranges = [var.ssh_source_ranges]
-}
 
