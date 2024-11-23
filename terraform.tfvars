@@ -32,12 +32,12 @@ nat_source_ip_ranges       = "ALL_SUBNETWORKS_ALL_IP_RANGES" # Source IP ranges 
 
 # Firewall Rules Configuration
 allow_internal_firewall_name = "self-runner-allow-internal"      # Name for the internal firewall rule
-allow_ssh_firewall_name    = "allow-ssh"                     # Name for the SSH firewall rule
+#allow_ssh_firewall_name    = "allow-ssh"                     # Name for the SSH firewall rule
 internal_source_ranges     = ["10.0.0.0/16"]                 # Internal source IP range allowed in the firewall rule
-ssh_source_ranges          = "0.0.0.0/0"                     # SSH source range (allows SSH from anywhere)
+#ssh_source_ranges          = "0.0.0.0/0"                     # SSH source range (allows SSH from anywhere)
 tcp_port_range             = ["0-65535"]                     # TCP port range for the firewall rule(given all ports for testing)
 udp_port_range             = ["0-65535"]                     # UDP port range for the firewall rule
-tcp_ssh_port               = ["22"]                          # SSH port (TCP port 22)
+#tcp_ssh_port               = ["22"]                          # SSH port (TCP port 22)
 
 # Master IP Range (for GKE Private Cluster)
 master_ipv4                = "172.16.0.0/28"                 # Private IP range for the GKE master nodes (for private clusters)
